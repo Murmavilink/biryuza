@@ -49,6 +49,8 @@ window.onload = () => {
             }
         }]
     });
+    
+    
     $('.hero__images').slick({
         autoplay: false,
         slidesToShow: 1,
@@ -59,10 +61,18 @@ window.onload = () => {
         asNavFor: '.hero__content',
     });
 
+
     $('.architecture__slider').slick({
         slidesToShow: 1,
         prevArrow: $('.architecture__arrow.prev'),
         nextArrow: $('.architecture__arrow.next')
+    });
+
+
+    $('.layouts-slider__slider').slick({
+        slidesToShow: 4,
+        prevArrow: $('.layouts-slider__arrow.prev'),
+        nextArrow: $('.layouts-slider__arrow.next')
     });
 };
 

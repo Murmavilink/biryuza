@@ -400,7 +400,8 @@
 .top-content {
     @include flex-center;
     text-align: center;
-    min-height: 700px;
+    // min-height: 700px;
+    min-height: 75vh;
     background: url('../img/top-image-bg.jpg') center center / cover no-repeat;
 
     &__title {
@@ -409,6 +410,17 @@
         font-size: 54px;
         font-weight: 700;
         line-height: 138%;
+        @media (max-width: 992px) {
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 36px;
+        }
+
+        @media (max-width: 425px) {
+            font-size: 28px;
+        }
     }
 }
 
@@ -430,6 +442,9 @@
     &__slide {
         position: relative;
         padding-top: 70px;
+        @media (max-width: 768px) {
+            padding-top: 50px;
+        }
     }
 
     &__slide-decor {
@@ -439,6 +454,10 @@
         z-index: -5;
         max-width: 1000px;
         width: 100%;
+
+        @media (max-width: 768px) {
+            top: 0;
+        }
     }
     
     &__slide-img {
@@ -450,16 +469,38 @@
     &__arrow {
         position: absolute;
         top: 50%;
-        transform: translateY(50%);
         cursor: pointer;
+
+        @media (max-width: 768px) {
+            transform: translateY(50px);
+        
+            svg {            
+                width: 15px;
+                height: 30px;
+
+                path {
+                    stroke: #fff;
+                }
+            }
+        }
+
+        @media (max-width: 425px) {
+            transform: translateY(70px);
+        }
     }
 
     &__arrow.prev {
         left: 0;
-    } 
+        @media (max-width: 768px) {
+            left: 15px;
+        }
+    }
 
     &__arrow.next {
         right: 0;
+        @media (max-width: 768px) {
+            right: 15px;
+        }
     } 
 
     &__bottom-text {
@@ -471,6 +512,17 @@
             line-height: 150%;
             color: #100C10;
         }
+
+        @media (max-width: 445px) {
+            column-gap: 15px;
+            svg {
+                width: 30px;
+                height: 30px;
+            }
+            span {
+                font-size: 16px;
+            }
+        }
     }
 }
 
@@ -480,6 +532,10 @@
 
     &__title {
         margin-bottom: 100px;
+        
+        @media (max-width: 768px) {
+            margin-bottom: 50px;
+        }
     }
 
     &__items {
@@ -495,6 +551,16 @@
         text-align: center;
         row-gap: 30px;
         padding: 0 50px;
+
+        @media (max-width: 1024px) {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            row-gap: 15px;
+            padding: 0 30px;
+        }
     }
 
     &__img {
@@ -508,6 +574,9 @@
         font-size: 20px;
         line-height: 150%;
         color: #100C10;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
     }
 }
 
@@ -618,6 +687,13 @@
         column-gap: 30px;
     }
 
+    &__img {
+        max-width: 804px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover
+    }
+
     &__items {
        @include flex-col;
        align-items: flex-start;
@@ -665,6 +741,9 @@
 
     &__img {
         object-fit: cover;
+        max-width: 804px;
+        width: 100%;
+        height: 100%;
     }
 
     &__item {
@@ -784,6 +863,57 @@
         line-height: 180%;
         color: #000000;
         flex-shrink: 0;
+        span {
+            margin-right: 2px;
+        }
     }
 }
 
+.layouts-slider {
+    padding-top: 30px;
+    &__img {
+        max-width: 387px;
+    }
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__slider {
+        margin-bottom: 50px;
+    }
+
+    &__arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        width: 18px;
+        height: 36px;
+    }
+
+    &__arrow.prev {
+        left: -60px;
+    } 
+
+    &__arrow.next {
+        right: -60px;
+    }
+    
+    &__link {
+        @include flex-center;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #02B0AF;
+        border-radius: 6px;
+        padding: 15px 25px;
+        color: #fff;
+        font-size: 18px;
+        line-height: 120%;
+        max-width: 360px;
+        
+        svg {
+            margin-left: 25px;
+        }
+    }
+}
