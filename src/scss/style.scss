@@ -591,12 +591,30 @@
             position: absolute;
             top: 0;
             left: 0;
-            background-image: url('../img/decor-disagn.jpg');
+            background-image: url('../img/decor-disagn.png');
             background-size: cover;
             background-repeat: no-repeat;
             width: 142px;
             height: 262px;
         }
+
+        @media (max-width: 1530px) {
+            flex-direction: column;   
+        }
+
+        @media (max-width: 768px) {
+            &::before {
+                width: 80px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            &::before {
+                display: none;
+            }
+        }
+
     }
 
     &__content {
@@ -604,10 +622,27 @@
         flex-basis: 50%;
         margin: 0 auto;
         max-width: 430px;
+        flex-shrink: 0;
+        @media (max-width: 1530px) {
+            padding-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            padding-top: 60px;
+        }
+
+        @media (max-width: 576px) {
+           padding-left: 15px;
+           padding-right: 15px;
+        }
     }
 
     &__img {
         flex-basis: 50%;
+
+        @media (max-width: 1530px) {
+            display: none;
+        }
     }
 
     &__content-title {
@@ -615,6 +650,10 @@
         font-size: 54px;
         line-height: 136%;
         margin-bottom: 30px;
+        @media (max-width: 768px) {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
     }
 
     &__content-descr {
@@ -623,10 +662,18 @@
         line-height: 180%;
         color: #100C10;
         margin-bottom: 100px;
+        max-width: 430px;
+        @media (max-width: 768px) {
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
     }
 
     &__content-items {
         margin-bottom: 100px;
+        @media (max-width: 768px) {
+            margin-bottom: 50px;
+        }
     }
 
     &__content-item {
@@ -637,6 +684,13 @@
         &:last-child {
             margin-bottom: 0;
         }
+
+        @media (max-width: 768px) {
+           svg {
+            width: 40px;
+            height: 40px;
+           }
+        }
     }
 
     &__content-text {
@@ -644,6 +698,9 @@
         font-size: 20px;
         line-height: 150%;
         color: #100C10;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
     }
 
     &__fullimg {
@@ -654,6 +711,10 @@
         width: 112px;
         height: 100px;
         object-fit: cover;
+        @media (max-width: 768px) {
+            width: 62px;
+            height: 52px;
+        }
     }
 }
 
