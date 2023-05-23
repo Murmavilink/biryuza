@@ -1,0 +1,50 @@
+.way-header {
+    transform: translateY(-100%);
+    transition: .3s ease-in-out;
+}
+
+.way.way--active.way-header {
+    transform: translateY(0);
+}
+
+.way-opacity {
+    opacity: 0;
+    transition: .4s ease-in-out;
+}
+
+.way.way--active.way-opacity {
+    opacity: 1;
+}
+
+.way-element-left {
+    transform: translateX(-150px);
+    opacity: 0;
+    transition: .4s ease-in-out;
+}
+
+.way-element-right {
+    transform: translateX(150px);
+    opacity: 0;
+    transition: .4s ease-in-out;
+}
+
+.way.way--active.way-element-left {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.way.way--active.way-element-right {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.way-element-drop {
+    transform: translateY(-100px);
+    opacity: 0;
+    transition: .4s ease-in-out;
+}
+
+.way.way--active.way-element-drop {
+    transform: translateY(0);
+    opacity: 1;
+}
