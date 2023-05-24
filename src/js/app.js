@@ -49,8 +49,8 @@ window.onload = () => {
             }
         }]
     });
-    
-    
+
+
     $('.hero__images').slick({
         autoplay: false,
         slidesToShow: 1,
@@ -72,7 +72,29 @@ window.onload = () => {
     $('.layouts-slider__slider').slick({
         slidesToShow: 4,
         prevArrow: $('.layouts-slider__arrow.prev'),
-        nextArrow: $('.layouts-slider__arrow.next')
+        nextArrow: $('.layouts-slider__arrow.next'),
+
+        responsive: [
+            {
+                breakpoint: 1650,
+                settings: {
+                    adaptiveHeight: true,
+                    slidesToShow: 3,
+                }
+            },
+            {
+                breakpoint: 1400,
+                settings: {
+                    slidesToShow: 2,
+                }
+            },
+            {
+                breakpoint: 856,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+        ]
     });
 };
 
@@ -84,7 +106,7 @@ function submitForm() {
 let alertt = document.querySelector(".alert--fixed");
 let alertClose = document.querySelectorAll(".alert--close")
 for (let item of alertClose) {
-    item.addEventListener('click', function(event) {
+    item.addEventListener('click', function (event) {
         alertt.classList.remove("alert--active")
         alertt.classList.remove("alert--warning")
         alertt.classList.remove("alert--error")
@@ -101,12 +123,12 @@ const tabs = () => {
     const removeClassActive = (items, itemActiveClass, contents, contentActiveClass) => {
         for (let i = 0; i < contents.length; i++) {
             items[i].classList.remove(itemActiveClass);
-    
+
             contents[i].classList.remove(contentActiveClass);
         }
     };
 
-    
+
     const addClassActive = (btn, proporty, activeClass, contentActiveClass) => {
         const dataContentId = btn.dataset[proporty];
         const content = document.querySelector(`[data-content="${dataContentId}"]`);
