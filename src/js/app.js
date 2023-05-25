@@ -69,6 +69,8 @@ window.onload = () => {
     });
 
 
+    //////////////////////////////////////
+
     $('.tabs__img-slider').slick({
         autoplay: true,
         slidesToScroll: 1,
@@ -77,10 +79,10 @@ window.onload = () => {
         dots: false,
         asNavFor: '.layouts-slider__slider',
         adaptiveWidth: true,
-    }); 
+    });
+
 
     $('.layouts-slider__slider').slick({
-        autoplay: true,
         slidesToShow: 4,
         slidesToScroll: 1,
         asNavFor: '.tabs__img-slider',
@@ -113,7 +115,43 @@ window.onload = () => {
     });
 
 
+
+    const sliderTabs = () => {
+        const tabBtnsWrap = document.querySelector('.tabs__btns');
+        const tabBtns = document.querySelectorAll('.tabs__btn');
+
+        const removeClassActive = () => {
+            tabBtns.forEach(btn => btn.classList.remove('tabs__btn--active'));
+        };
+
+
+        const showSlides = (value) => {
+            $('.tabs__img-slider').slick('slickUnfilter');
+            $('.tabs__img-slider').slick('slickFilter', `[data-room="${value}"]`);
+
+            $('.layouts-slider__slider').slick('slickUnfilter');
+            $('.layouts-slider__slider').slick('slickFilter', `[data-room="${value}"]`);
+        };
+
+
+        tabBtnsWrap.addEventListener('click', (e) => {
+            if (e.target.classList.contains('tabs__btn')) {
+                removeClassActive();
+                showSlides(e.target.dataset.room);
+
+                e.target.classList.add('tabs__btn--active');
+            }
+        });
+
+
+        showSlides(1);
+    };
+
+
+    sliderTabs();
 };
+
+
 
 // loader func
 function submitForm() {
@@ -130,38 +168,3 @@ for (let item of alertClose) {
     })
 }
 
-
-
-const tabs = () => {
-    const tabBtns = document.querySelectorAll('.tabs__btn');
-    const tabContents = document.querySelectorAll('.tabs__content');
-
-
-    const removeClassActive = (items, itemActiveClass, contents, contentActiveClass) => {
-        for (let i = 0; i < contents.length; i++) {
-            items[i].classList.remove(itemActiveClass);
-
-            contents[i].classList.remove(contentActiveClass);
-        }
-    };
-
-
-    const addClassActive = (btn, proporty, activeClass, contentActiveClass) => {
-        const dataContentId = btn.dataset[proporty];
-        const content = document.querySelector(`[data-content="${dataContentId}"]`);
-
-        btn.classList.add(activeClass);
-        content.classList.add(contentActiveClass);
-    };
-
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            removeClassActive(tabBtns, 'tabs__btn--active', tabContents, 'tabs__content--active');
-            addClassActive(btn, 'tab', 'tabs__btn--active', 'tabs__content--active');
-        });
-    });
-
-};
-
-tabs();
