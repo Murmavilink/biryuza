@@ -614,7 +614,12 @@
                 display: none;
             }
         }
+    }
 
+    &__content-img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
     }
 
     &__content {
@@ -873,6 +878,7 @@
     &__item-img {
         width: 50px;
         height: 50px;
+        object-fit: contain;
     }
 
     &__item-title {
