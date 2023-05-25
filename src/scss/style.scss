@@ -640,7 +640,10 @@
 
     &__img {
         flex-basis: 50%;
-
+        max-width: 960px;
+        width: 100%;
+        object-fit: cover;
+        height: 1125px;
         @media (max-width: 1530px) {
             display: none;
         }
